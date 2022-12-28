@@ -9,6 +9,7 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
 .blind {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -21,6 +22,16 @@ html, body {
 .center-align {
     margin: 0 auto; 
     width: 1080px;
+}
+
+#header-top span{
+    color: #888;
+    letter-spacing: -1px;
+    font-size: 11px;
+    line-height: 22px;
+}
+#header-search {
+    clear: both;
 }
 
 #header-search a {
@@ -88,11 +99,21 @@ html, body {
     background-repeat: no-repeat;
     background-size: 442px 428px;
 }
+nav#center-align {
+    position: relative;
+}
+#nav-live{
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    right: 0px;
+}
 
 nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: inline-block;
 }
 
 nav li {
@@ -138,6 +159,6 @@ nav li:nth-child(6) span:first-child{
     background-position: -69px -285px;
 }
 
-#header-goto {
+#header-top {
     float: right;
 }
