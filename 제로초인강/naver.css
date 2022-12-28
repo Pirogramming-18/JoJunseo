@@ -8,6 +8,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
 }
 
 .blind {
@@ -19,9 +20,17 @@ html, body {
     overflow: hidden;
 }
 
+.relative {
+    position: relative;
+}
 .center-align {
     margin: 0 auto; 
     width: 1080px;
+}
+
+
+header {
+    height: 170px;
 }
 
 #header-top span{
@@ -32,6 +41,7 @@ html, body {
 }
 #header-search {
     clear: both;
+    padding-top: 20px;
 }
 
 #header-search a {
@@ -58,7 +68,7 @@ html, body {
 }
 
 #header-search fieldset{
-    margin-left: 20px;
+    margin-left: 18px;
     padding: 12px 0px 12px 10px;
     width: 521px;
     height: 49px;
@@ -102,16 +112,16 @@ html, body {
 nav#center-align {
     position: relative;
 }
-#nav-live{
-    display: inline-block;
-    margin: 0;
-    position: absolute;
-    right: 0px;
+
+nav {
+    height: 46px;
+    border-top: 1px solid #f1f3f6;
+    border-bottom: 1px solid #d1d8e4;
 }
 
 nav ul {
     margin: 0;
-    padding: 0;
+    padding: 16px 0 0 4px;
     list-style: none;
     display: inline-block;
 }
@@ -125,7 +135,7 @@ nav li span:first-child{
     display: inline-block;
     background-repeat: no-repeat;
     background-image: url(./sp_nav.png);
-    margin-left: 14px;
+    margin-left: 10px;
 }
 
 nav li:first-child span:first-child{
@@ -161,4 +171,23 @@ nav li:nth-child(6) span:first-child{
 
 #header-top {
     float: right;
+}
+
+.nav-divider {
+    display: inline-block;
+    margin: 18px 16px 0;
+    width: 1px;
+    height: 14px;
+    background: #ebeef3;
+}
+#search-ranking {
+    position: absolute;
+    right: 100px;
+    top:16px;
+}
+
+#rank-number {
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
 }
