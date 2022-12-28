@@ -18,7 +18,7 @@ html, body {
     overflow: hidden;
 }
 
-#header-center {
+.center-align {
     margin: 0 auto; 
     width: 1080px;
 }
@@ -87,4 +87,51 @@ html, body {
     background-position: -420px -24px;
     background-repeat: no-repeat;
     background-size: 442px 428px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li span:first-child{
+    height: 16px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(./sp_nav.png);
+}
+
+nav li:first-child span:first-child{
+    width: 25px;
+    background-position: 0 -285px;
+}
+
+nav li:nth-child(2) span:first-child{
+    width: 28px;
+    background-position: -278px -52px;
+}
+
+nav li:nth-child(3) span:first-child{
+    width: 42px;
+    background-position: -98px -182px;
+}
+
+nav li:nth-child(4) span:first-child{
+    width: 44px;
+    background-position: -98px -156px;
+}
+
+nav li:nth-child(5) span:first-child{
+    width: 28px;
+    background-position: -278px -156px;
+}
+
+nav li:nth-child(6) span:first-child{
+    width: 29px;
+    background-position: -69px -285px;
 }
