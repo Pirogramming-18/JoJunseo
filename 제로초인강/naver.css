@@ -137,3 +137,7 @@ nav li:nth-child(6) span:first-child{
     width: 29px;
     background-position: -69px -285px;
 }
+
+#header-goto {
+    float: right;
+}
