@@ -34,7 +34,7 @@
     text-indent: 100%;
     overflow: hidden;
     vertical-align: middle;
-    position: relative;
+    position: relative;  
     top: -7px;
 }
 
@@ -69,7 +69,7 @@
     border: none;
     padding: 0;
     background: #03cf5d;
-    position: absolute;
+    position: absolute;   /* 컨테이닝 블록 : 자신의 조상중에 static이 아닌 조상을 기준으로 absolute가 적용된다 */
     right: -2px;
     top: -2px;
     
