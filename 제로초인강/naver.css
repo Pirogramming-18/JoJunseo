@@ -1,6 +1,10 @@
 /* Cascading Style Sheet */
 /* 선택자(selector) */
 
+* {
+    box-sizing: border-box;
+}
+
 .blind {
     position: absolute;
     clip: rect(0 0 0 0);
@@ -29,6 +33,7 @@
     background-repeat: no-repeat;
     text-indent: 100%;
     overflow: hidden;
+    vertical-align: middle;
 }
 
 #header-search h2 {
@@ -41,5 +46,12 @@
     width: 521px;
     height: 49px;
     display: inline-block;
-    border: 2px solid #03cf5d;
+    border: 2px solid #03cf5d; /* hex */
+    vertical-align: middle;
+}
+
+#header-search fieldset input {
+    border: none;
+    padding: 0;
+    outline: none;
 }
