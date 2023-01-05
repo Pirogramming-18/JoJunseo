@@ -3,40 +3,34 @@ class NotInRange(Exception):
         super().__init__('1,2,3 중 하나를 입력하세요')
 
 num=0
+player = 'A'
 
 while True:
-    try:
-        countA = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
-        if(not(1<=countA<=3)):
-            raise NotInRange
-    except ValueError:
-        print('정수를 입력하세요')
-    except NotInRange as e:
-        print(e)
-    else:
+    while True:
+        try:
+            count = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
+            if(not(1<=count<=3)):
+                raise NotInRange
+        except ValueError:
+            print('정수를 입력하세요')
+        except NotInRange as e:
+            print(e)
+        else:
+            break
+
+    while count>0:
+        num += 1
+        if num>31 :
+            break
+        print('player{0} : {1}'.format(player,num))
+        count -= 1
+
+    if num>31:
         break
 
-while countA>0:
-    num += 1
-    print('playerA : {0}'.format(num))
-    countA -= 1
+    if player == 'A':
+        player = 'B'
+    else :
+        player = 'A'
 
-
-
-while True:
-    try:
-        countB = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
-        if(not(1<=countB<=3)):
-            raise NotInRange
-    except ValueError:
-        print('정수를 입력하세요')
-    except NotInRange as e:
-        print(e)
-    else:
-        break
-
-while countB>0:
-    num += 1
-    print('playerB : {0}'.format(num))
-    countB -= 1
 
