@@ -16,3 +16,8 @@ while True:
     else:
         break
 
+while count>0:
+    num += 1
+    print('playerA : {0}'.format(num))
+    count -= 1
+
