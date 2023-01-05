@@ -6,8 +6,8 @@ num=0
 
 while True:
     try:
-        count = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
-        if(not(1<=count<=3)):
+        countA = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
+        if(not(1<=countA<=3)):
             raise NotInRange
     except ValueError:
         print('정수를 입력하세요')
@@ -16,8 +16,27 @@ while True:
     else:
         break
 
-while count>0:
+while countA>0:
     num += 1
     print('playerA : {0}'.format(num))
-    count -= 1
+    countA -= 1
+
+
+
+while True:
+    try:
+        countB = int(input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : '))
+        if(not(1<=countB<=3)):
+            raise NotInRange
+    except ValueError:
+        print('정수를 입력하세요')
+    except NotInRange as e:
+        print(e)
+    else:
+        break
+
+while countB>0:
+    num += 1
+    print('playerB : {0}'.format(num))
+    countB -= 1
 
