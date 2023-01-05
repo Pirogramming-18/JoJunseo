@@ -25,12 +25,16 @@ while True:
         print('player{0} : {1}'.format(player,num))
         count -= 1
 
-    if num>31:
-        break
+    print()
 
     if player == 'A':
         player = 'B'
     else :
         player = 'A'
+
+    if num>31:
+        break
+
+print('player{0} win!'.format(player))
 
 
