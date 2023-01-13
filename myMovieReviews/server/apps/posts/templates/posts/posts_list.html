@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/css/posts_list.css" />
+    <title>myMoviereview</title>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <a href="/" class="deco-none logo">🎬 my<span>Movie</span>reviews</a>
+      </div>
+      <div><a href="/posts/create" class="deco-none create">리뷰 작성</a></div>
+    </header>
+
+    <hr />
+    <div class="review-list">
+      {% for post in posts %}
+      <div class="review">
+        <h3><a href="/posts/{{post.pk}}">{{post.title}}</a></h3>
+        <img src="{{post.poster}}" alt="" />
+        <p>개봉년도: {{post.year}}</p>
+        <p>장르: {{post.genre}}</p>
+        <p>별점: {{post.rating}}</p>
+      </div>
+
+      {% endfor %}
+    </div>
+  </body>
+</html>

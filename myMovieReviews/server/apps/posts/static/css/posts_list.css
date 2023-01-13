@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deco-none {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  margin: 5px;
+}
+
+.logo span {
+  color: rgb(106, 106, 228);
+}
+
+.create {
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.review-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.review {
+  background-color: rgb(237, 235, 235);
+  padding: 10px;
+  border: 1px solid rgb(237, 235, 235);
+  border-radius: 5px;
+}
+
+.review h3 a {
+  color: black;
+  text-decoration: none;
+}
+
+.review img {
+  width: 200px;
+  height: 300px;
+}

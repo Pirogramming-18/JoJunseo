@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/posts_retrieve.css" />
+    <title>myMoviereview</title>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <a href="/" class="deco-none logo">🎬 my<span>Movie</span>reviews</a>
+      </div>
+      <div><a href="/posts/create" class="deco-none create">리뷰 작성</a></div>
+    </header>
+    <hr />
+    <div class="review-header">
+      <h1>{{ post.title }}</h1>
+      <div>
+        <a href="/posts/{{post.id}}/update">수정</a>
+        <form action="/posts/{{post.id}}/delete" method="post">
+          {% csrf_token %}
+          <input type="submit" value="삭제" />
+        </form>
+      </div>
+    </div>
+    <div class="review-info">
+      <img src="{{post.poster}}" alt="영화포스터" />
+      <div>
+        <small>개봉년도: {{post.year}}년</small>
+        <br />
+        <small>감독: {{post.producer}}</small>
+        <br />
+        <small>주연: {{post.actor}}</small>
+        <br />
+        <small>장르: {{post.genre}}</small>
+        <br />
+        <small>별점: {{post.rating}}</small>
+        <br />
+        <small>러닝타임: {{post.hour}}시간 {{post.minute}}분</small>
+      </div>
+    </div>
+    <div class="review-content"><p>{{post.review}}</p></div>
+
+    <br />
+  </body>
+</html>

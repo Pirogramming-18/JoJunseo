@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/posts_create.css" />
+    <title>myMoviereview</title>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <a href="/" class="deco-none logo">🎬 my<span>Movie</span>reviews</a>
+      </div>
+      <div><a href="/posts/create" class="deco-none create">리뷰 작성</a></div>
+    </header>
+    <hr />
+    <div class="review-create">
+      <h1>리뷰 작성하기</h1>
+
+      <form action="/posts/create" method="post">
+        {% csrf_token %} 영화제목: <input name="title" placeholder="영화제목" />
+        <br />
+        포스터(이미지 주소를 넣어주세요, 비워놓아도 됩니다):
+        <br />
+        <input name="poster" placeholder="이미지 주소로 입력" /> <br />
+        개봉년도:
+        <input name="year" placeholder="개봉년도" />
+        <br />
+        장르:
+        <select name="genre">
+          <option value="액션">액션</option>
+          <option value="SF">SF</option>
+          <option value="코미디">코미디</option>
+          <option value="로맨스">로맨스</option>
+          <option value="로맨스">스릴러</option>
+          <option value="로맨스">판타지</option>
+          <option value="로맨스">음악</option>
+        </select>
+        <br />
+        별점: <input name="rating" placeholder="별점" />
+        <br />
+        러닝타임: <input name="time" placeholder="러닝타임" />
+        <br />
+        리뷰: <br /><textarea name="review" placeholder="리뷰"></textarea>
+        <br />
+        감독: <input name="producer" placeholder="감독" />
+        <br />
+        주연: <input name="actor" placeholder="주연" />
+        <br />
+        <div>
+          <input type="submit" value="저장하기" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
