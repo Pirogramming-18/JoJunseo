@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 리스트</title>
+    <link rel="stylesheet" href="{% static 'css/ideas_list.css' %}" />
+  </head>
+  <body>
+    <div>
+      <ul class="nav-list">
+        <li><a href="">My SW Idea Manage</a></li>
+        <li><a href="{% url 'posts:ideascreate' %}">아이디어 등록</a></li>
+        <li><a href="{% url 'posts:ideaslist' %}">아이디어 관리</a></li>
+        <li><a href="{% url 'posts:toolscreate' %}">개발툴 등록</a></li>
+        <li><a href="{% url 'posts:toolslist' %}">개발툴 관리</a></li>
+      </ul>
+    </div>
+
+    <div class="idea-list">
+      <h3>Idea List</h3>
+      <p>나의 아이디어를 잊지 말고 기록해보세요</p>
+      <div class="tool-box">
+        {% for idea in ideas %}
+        <div class="tool-info">
+          {% if idea.image %}
+          <button class="like-btn">
+            <i class="fa-solid fa-star like"></i>
+          </button>
+          <p>
+            <img src="{{ idea.image.url }}" alt="" />
+          </p>
+          {% endif %}
+          <p>
+            <a href="{% url 'posts:ideas_retrieve' idea.pk %}"
+              >{{idea.title}}</a
+            >
+          </p>
+          <p>예상 개발 툴 : {{idea.devtool.name}}</p>
+          <p>아이디어 관심도 : {{idea.interest}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="{% static 'javascripts/ideas_list.js' %}"></script>
+    <script
+      src="https://kit.fontawesome.com/6fbcf91afd.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

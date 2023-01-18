@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 리스트</title>
+    <link rel="stylesheet" href="{% static 'css/ideas_retrieve.css' %}" />
+  </head>
+  <body>
+    <div>
+      <ul class="nav-list">
+        <li><a href="">My SW Idea Manage</a></li>
+        <li><a href="{% url 'posts:ideascreate' %}">아이디어 등록</a></li>
+        <li><a href="{% url 'posts:ideaslist' %}">아이디어 관리</a></li>
+        <li><a href="{% url 'posts:toolscreate' %}">개발툴 등록</a></li>
+        <li><a href="{% url 'posts:toolslist' %}">개발툴 관리</a></li>
+      </ul>
+    </div>
+
+    <div class="idea-list">
+      <h3>Idea Register<h3>
+      <p>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!</p>
+      <div class="tool-box">
+        <form
+      action="{% url 'posts:ideascreate' %}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <p>아이디어명:</p>
+      <input name="title" />
+      <br />
+      <p>Image:</p>
+      <input type="file" name="image" />
+      <br />
+      <p>아이디어 설명:</p>
+      <textarea name="content"></textarea>
+      <p>아이디어 관심도:</p>
+      <input name="interest" type="number"/>
+      <br />
+      <p>예상 개발툴:</p>
+      <select name="devtool">
+        {% for tool in all_tool %}
+        <option value="{{tool.name}}">{{tool.name}}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <div>
+        <input type="submit" , value="저장하기" />
+      </div>
+    </form>
+      </div>
+    </div>
+  </body>
+</html>

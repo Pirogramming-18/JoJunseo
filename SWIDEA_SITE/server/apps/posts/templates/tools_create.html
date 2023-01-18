@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 리스트</title>
+    <link rel="stylesheet" href="{% static 'css/tools_create.css' %}" />
+  </head>
+  <body>
+    <div>
+      <ul class="nav-list">
+        <li><a href="">My SW Idea Manage</a></li>
+        <li><a href="{% url 'posts:ideascreate' %}">아이디어 등록</a></li>
+        <li><a href="{% url 'posts:ideaslist' %}">아이디어 관리</a></li>
+        <li><a href="{% url 'posts:toolscreate' %}">개발툴 등록</a></li>
+        <li><a href="{% url 'posts:toolslist' %}">개발툴 관리</a></li>
+      </ul>
+    </div>
+
+    <div class="idea-list">
+      <h3>DevTool Register<h3>
+      <p>개발툴 등록 페이지 입니다. 자신이 다룰 수 있는 개발툴을 등록해 보세요</p>
+      <div class="tool-box">
+        <form
+      action="{% url 'posts:toolscreate' %}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}
+      <p>이름:</p>
+      <input name="name" />
+      <br />
+      <p>종류:</p>
+      <input name="kind" />
+      <br />
+      <p>개발툴 설명:</p>
+      <textarea name="content"></textarea>
+      <div>
+        <input type="submit" , value="저장하기" />
+      </div>
+    </form>
+      </div>
+    </div>
+  </body>
+</html>
