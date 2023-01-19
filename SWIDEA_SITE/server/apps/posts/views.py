@@ -35,6 +35,11 @@ def ideas_retrieve(request:HttpRequest, pk, *args, **kwargs):
     context = {
         "idea" : idea,
     }
+    if request.method == "POST":
+        idea.star=request.POST["star"]
+        idea.save()
+        return redirect(f"/")
+    
     return render(request, "ideas_retrieve.html", context=context)
 
 def tools_retrieve(request:HttpRequest, pk, *args, **kwargs):
@@ -95,7 +100,7 @@ def ideas_update(request:HttpRequest, pk, *args, **kwargs):
         }
     if request.method == "POST":
         idea.title=request.POST["title"]
-        idea.image=request.FILES["image"]
+        idea.image=request.FILES.get("image")
         idea.content=request.POST["content"]
         idea.interest=request.POST["interest"]
         idea.devtool=Tool.objects.get(name=request.POST["devtool"])

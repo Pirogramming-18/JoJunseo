@@ -23,7 +23,9 @@
       <h3>Idea Detail<h3>
       <p>아이디어 세부내용 페이지 입니다. 당신이 구현하려한 아이디어들을 자세히 살펴보세요.</p>
       <div class="tool-box">
+        {% if idea.image %}
         <img src="{{ idea.image.url }}" width=300 ,height =300 ,alt="" />
+        {% endif %}
         <div>
             <h2>{{idea.title}}</h2>
             <p>1) 아이디어 관심도</p>

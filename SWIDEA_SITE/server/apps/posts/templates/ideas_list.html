@@ -25,10 +25,20 @@
       <div class="tool-box">
         {% for idea in ideas %}
         <div class="tool-info">
-          {% if idea.image %}
-          <button class="like-btn">
-            <i class="fa-solid fa-star like"></i>
-          </button>
+          {% if idea.star == False %}
+          <form action="{% url 'posts:ideaslist' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="star" value="True" />
+            <input type="submit" class="like-btn" value="☆" />
+          </form>
+
+          {% else %}
+          <form action="{% url 'posts:ideaslist' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="star" value="False" />
+            <input type="submit" class="like-btn" value="★" />
+          </form>
+          {% endif %} {% if idea.image %}
           <p>
             <img src="{{ idea.image.url }}" alt="" />
           </p>

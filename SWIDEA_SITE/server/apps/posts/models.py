@@ -8,9 +8,9 @@ class Tool(models.Model):
 
 class Idea(models.Model):
     title = models.CharField(max_length=50)
-    image = models.ImageField(blank=True, upload_to='posts/%Y%m%d')
+    image = models.ImageField(blank=True, upload_to='posts/%Y%m%d', null=True)
     content = models.TextField()
     interest = models.IntegerField()
-    devtool = models.ForeignKey(Tool, on_delete=models.CASCADE, related_name="idea_tool")
-
-
+    devtool = models.ForeignKey(Tool, on_delete=models.CASCADE,
+    related_name="idea_tool")
+    star = models.BooleanField(default=False)
