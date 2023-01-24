@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/post.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/6fbcf91afd.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Pirostagram</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="post">
+          <div class="profile-bar">
+            <div class="profile">
+              <img src="../../../media/profile.png" alt="profile" />
+              <div class="name">monsta__zo</div>
+              <div class="time">∙8분</div>
+            </div>
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <img src="../../../media/postimage.jpeg" alt="image" width="500px" />
+          <div class="icon-menu">
+            <div>
+              <i class="fa-regular fa-heart fa-lg"></i>
+              <i class="fa-regular fa-comment fa-lg"></i>
+              <i class="fa-regular fa-paper-plane fa-lg"></i>
+            </div>
+            <i class="fa-regular fa-bookmark fa-lg"></i>
+          </div>
+          <p class="content"><span>monsta__zo</span>브이 V</p>
+          <div class="comment">
+            <div>
+              <img src="../../../media/profile.png" alt="" width="35px" />
+              <div class="name">monsta__zo</div>
+              <p>우와 멋있다~</p>
+            </div>
+            <a href="">삭제하기</a>
+          </div>
+        </div>
+        <div class="comment-bar">
+          <input type="text" class="comment-input" placeholder="댓글 달기..." />
+          <button>게시</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

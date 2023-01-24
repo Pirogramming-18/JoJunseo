@@ -16,11 +16,12 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$ekwsxz14cb9wnl1nx9$t)cz%fdv#=owhagxc#)92h=72=7uab'
+SECRET_KEY = 'django-insecure-+$6+9x-#tdy_(t5!y44e#bfg$*d%2#skcyz2+isgx@p^!)7+-i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,17 +35,10 @@ INSTALLED_APPS = [
     'server.apps.posts',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    
-    'allauth.socialaccount.providers.google'
 ]
 
 MIDDLEWARE = [
@@ -137,13 +131,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    
-    'allauth.account.auth_backends.AuthenticationBackend'
-    
-)
-
-SITE_ID = 1
-LOGIN_REDIRECT_URL = '/'
