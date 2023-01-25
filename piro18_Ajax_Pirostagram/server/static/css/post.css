@@ -3,18 +3,21 @@ p {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 main {
   background-color: lightgray;
-  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .container {
+  margin-top: 5%;
+  margin-bottom: 10%;
   width: 500px;
-  height: 700px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -78,12 +81,20 @@ main {
 .comment {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-between;
 }
-.comment div {
+.comment > div {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 5px;
+  width: 100%;
+}
+
+.comment > div div {
+  display: flex;
+  align-items: center;
 }
 
 .comment * {
@@ -94,11 +105,13 @@ main {
   font-size: 0.9rem;
 }
 
-.comment a {
-  text-decoration: none;
+.comment > div button {
+  cursor: pointer;
   color: gray;
   font-size: 0.8rem;
   margin-right: 15px;
+  background-color: white;
+  border: 0;
 }
 
 .comment-bar {

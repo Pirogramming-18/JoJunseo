@@ -27,7 +27,10 @@
           <img src="../../../media/postimage.jpeg" alt="image" width="500px" />
           <div class="icon-menu">
             <div>
-              <i class="fa-regular fa-heart fa-lg"></i>
+              <i
+                class="fa-regular fa-heart fa-lg like-btn"
+                onclick="onClickLike()"
+              ></i>
               <i class="fa-regular fa-comment fa-lg"></i>
               <i class="fa-regular fa-paper-plane fa-lg"></i>
             </div>
@@ -35,19 +38,110 @@
           </div>
           <p class="content"><span>monsta__zo</span>브이 V</p>
           <div class="comment">
-            <div>
-              <img src="../../../media/profile.png" alt="" width="35px" />
-              <div class="name">monsta__zo</div>
-              <p>우와 멋있다~</p>
+            {% for comment in comments %}
+            <div class="comment-id-{{ comment.id }}">
+              <div>
+                <img src="../../../media/profile.png" alt="" width="35px" />
+                <div class="name">monsta__zo</div>
+                <p>{{ comment.content }}</p>
+              </div>
+              <button onclick="onClickDelete({{comment.id}})">삭제하기</button>
             </div>
-            <a href="">삭제하기</a>
+            {% endfor %}
           </div>
         </div>
         <div class="comment-bar">
           <input type="text" class="comment-input" placeholder="댓글 달기..." />
-          <button>게시</button>
+          <button onclick="onClickPost()">게시</button>
         </div>
       </div>
     </main>
+    <script>
+      let likestatus = false;
+
+      const requestLike = new XMLHttpRequest();
+
+      const onClickLike = () => {
+        const url = "/like_ajax/";
+        requestLike.open("POST", url, true);
+        requestLike.setRequestHeader(
+          "Content-Type",
+          "applcation/x-www-form-urlencoded"
+        );
+        requestLike.send(JSON.stringify({ likestatus: likestatus }));
+      };
+
+      requestLike.onreadystatechange = () => {
+        if (requestLike.readyState === XMLHttpRequest.DONE) {
+          if (requestLike.status < 400) {
+            const { like } = JSON.parse(requestLike.response);
+            likestatus = like;
+            const element = document.querySelector(".like-btn");
+            if (likestatus == "false") {
+              element.classList.remove("fa-regular");
+              element.classList.add("fa-solid");
+            } else {
+              element.classList.remove("fa-solid");
+              element.classList.add("fa-regular");
+            }
+          }
+        }
+      };
+
+      const requestPost = new XMLHttpRequest();
+
+      const onClickPost = () => {
+        const url = "/post_comment/";
+        const element = document.querySelector(".comment-input");
+        const comment = element.value;
+        element.value = "";
+        requestPost.open("POST", url, true);
+        requestPost.setRequestHeader(
+          "Content-Type",
+          "applcation/x-www-form-urlencoded"
+        );
+        requestPost.send(JSON.stringify({ comment: comment }));
+      };
+
+      requestPost.onreadystatechange = () => {
+        if (requestPost.readyState === XMLHttpRequest.DONE) {
+          if (requestPost.status < 400) {
+            const { comment, id } = JSON.parse(requestPost.response);
+            const element = document.querySelector(".comment");
+            element.innerHTML += `<div class="comment-id-${id}">
+              <div>
+                <img src="../../../media/profile.png" alt="" width="35px" />
+                <div class="name">monsta__zo</div>
+                <p>${comment}</p>
+              </div>
+              <button onclick="onClickDelete(${id})">삭제하기</button>
+            </div>`;
+          }
+        }
+      };
+
+      const requestDelete = new XMLHttpRequest();
+
+      const onClickDelete = (id) => {
+        const url = "/comment_delete/";
+        requestDelete.open("POST", url, true);
+        requestDelete.setRequestHeader(
+          "Content-Type",
+          "applcation/x-www-form-urlencoded"
+        );
+        requestDelete.send(JSON.stringify({ id: id }));
+      };
+
+      requestDelete.onreadystatechange = () => {
+        if (requestDelete.readyState === XMLHttpRequest.DONE) {
+          if (requestDelete.status < 400) {
+            const { id } = JSON.parse(requestDelete.response);
+            const element = document.querySelector(`.comment-id-${id}`);
+            console.log(element);
+            element.remove();
+          }
+        }
+      };
+    </script>
   </body>
 </html>
